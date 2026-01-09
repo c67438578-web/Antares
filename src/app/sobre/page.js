@@ -1,7 +1,4 @@
-export const metadata = {
-  title: 'Sobre Nós | Antares Energia',
-  description: 'Conheça a história da Antares Energia e nossa missão de liderar a revolução solar no Brasil.',
-};
+'use client'
 
 export default function Sobre() {
   return (
@@ -12,7 +9,6 @@ export default function Sobre() {
           <p className="text-gray-500 max-w-2xl mx-auto">Engenharia de precisão e compromisso sustentável.</p>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
           <div>
