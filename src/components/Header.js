@@ -1,70 +1,48 @@
 'use client';
-
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // O original usava 50px para mudar o estado
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav 
-      className={`fixed w-full z-50 backdrop-blur-md border-b transition-all duration-500 ${
-        scrolled 
-          ? 'bg-[#0D1B2A]/95 py-4 border-white/10 shadow-lg' 
-          : 'bg-transparent py-6 border-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-[#0D1B2A]/95 backdrop-blur-md py-3 shadow-xl' : 'bg-transparent py-5'
+    }`}>
+      <div className="max-w-[1200px] mx-auto px-6 flex justify-between items-center">
+        {/* Logo alinhada exatamente à esquerda */}
         <Link href="/">
           <img 
-            src="/antares_logo.svg" 
+            src="https://antaresenergia.com/wp-content/uploads/antares_logo.svg" 
             alt="Antares" 
-            className="h-10 w-auto brightness-0 invert" 
+            className="h-8 md:h-9 w-auto brightness-0 invert" 
           />
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8">
-          <Link 
-            href="/" 
-            className="text-sm font-bold font-heading uppercase text-white hover:text-[#00C2FF] transition-colors"
-          >
-            Home
-          </Link>
-          <Link 
-            href="/sobre" 
-            className="text-sm font-bold font-heading uppercase text-white hover:text-[#00C2FF] transition-colors"
-          >
-            Sobre
-          </Link>
-          <Link 
-            href="/servicos" 
-            className="text-sm font-bold font-heading uppercase text-white hover:text-[#00C2FF] transition-colors"
-          >
-            Serviços
-          </Link>
-          <Link 
-            href="/projetos" 
-            className="text-sm font-bold font-heading uppercase text-white hover:text-[#00C2FF] transition-colors"
-          >
-            Projetos
-          </Link>
+        {/* Menu alinhado à direita com Montserrat Extra-Bold */}
+        <div className="hidden md:flex items-center space-x-10">
+          {['HOME', 'SOBRE', 'SERVIÇOS', 'PROJETOS'].map((item) => (
+            <Link 
+              key={item} 
+              href={item === 'HOME' ? '/' : `/${item.toLowerCase()}`}
+              className="text-[13px] font-extrabold font-heading text-white hover:text-[#00C2FF] transition-colors tracking-wider"
+            >
+              {item}
+            </Link>
+          ))}
           
-          {/* O seu botão "Simular" com o Verde/Ciano original */}
+          {/* O Botão Simular idêntico ao Print */}
           <Link 
             href="/contato" 
-            className="px-6 py-2 bg-[#00C2FF] text-[#0D1B2A] font-bold font-heading text-sm uppercase hover:bg-white transition-all shadow-[0_0_15px_rgba(0,194,255,0.3)]"
+            className="bg-[#00C2FF] text-[#0D1B2A] px-8 py-2.5 text-[13px] font-extrabold font-heading uppercase tracking-widest hover:bg-white transition-all rounded-sm"
           >
-            Simular
+            SIMULAR
           </Link>
         </div>
       </div>
