@@ -6,20 +6,17 @@ import Link from 'next/link';
 export default function Home() {
   const [bill, setBill] = useState(500);
   const [slide, setSlide] = useState(0);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState(null);
 
-  // Dados dos slides (mantendo suas URLs)
   const slides = [
     "https://indigo-goat-999288.hostingersite.com/wp-content/uploads/2025/11/transferir-2.jpeg",
     "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?q=80&w=1920",
     "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=1920"
   ];
 
-  // Cálculos da Calculadora
   const annualSavings = bill * 0.95 * 12;
   const totalSavings = annualSavings * 25;
 
-  /* HERO SLIDESHOW TIMER */
   useEffect(() => {
     const interval = setInterval(() => {
       setSlide(prev => (prev + 1) % slides.length);
@@ -131,12 +128,18 @@ export default function Home() {
             <div className="w-20 h-1 bg-[#00C2FF] mx-auto" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {['Alta Performance', 'Instalação Segura', 'Sustentabilidade'].map((title, i) => (
-              <div key={i} className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
-                <h3 className="text-xl font-bold mb-4 uppercase">{title}</h3>
-                <p className="text-gray-600">Excelência técnica em cada detalhe do projeto.</p>
-              </div>
-            ))}
+            <div className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
+              <h3 className="text-xl font-bold mb-4 uppercase">Alta Performance</h3>
+              <p className="text-gray-600">Equipamentos Tier-1 globais para máxima geração.</p>
+            </div>
+            <div className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
+              <h3 className="text-xl font-bold mb-4 uppercase">Instalação Segura</h3>
+              <p className="text-gray-600">Equipe própria certificada e acabamento impecável.</p>
+            </div>
+            <div className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
+              <h3 className="text-xl font-bold mb-4 uppercase">Sustentabilidade</h3>
+              <p className="text-gray-600">Análise financeira detalhada e retorno garantido.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -160,7 +163,7 @@ export default function Home() {
                 <span className="text-[#00C2FF] font-bold text-xl">{openFaq === idx ? '-' : '+'}</span>
               </button>
               <div className={`overflow-hidden transition-all duration-300 ${openFaq === idx ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="p-6 pt-0 text-gray-600">{a}</div>
+                <div className="p-6 pt-0 text-gray-600 border-t border-gray-50 mt-2">{a}</div>
               </div>
             </div>
           ))}
@@ -171,7 +174,7 @@ export default function Home() {
       <section className="py-24 bg-[#0D1B2A] text-center text-white px-6">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">Pronto para gerar sua própria energia?</h2>
         <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Solicite um orçamento sem compromisso.</p>
-        <Link href="/contato" className="inline-block px-10 py-5 bg-[#00C2FF] text-[#0D1B2A] font-bold uppercase tracking-wider hover:bg-white transition-all">
+        <Link href="/contato" className="inline-block px-10 py-5 bg-[#00C2FF] text-[#0D1B2A] font-bold uppercase tracking-wider hover:bg-white transition-all shadow-lg">
           Simular Economia Agora
         </Link>
       </section>
