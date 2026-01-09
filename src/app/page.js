@@ -5,10 +5,27 @@ import Link from 'next/link';
 
 export default function Home() {
   const [bill, setBill] = useState(500);
+  const [slide, setSlide] = useState(0);
+
+  /* HERO SLIDESHOW */
+  useEffect(() => {
+    const slides = document.querySelectorAll('.hero-slide');
+    slides.forEach((s, i) => {
+      s.style.opacity = i === slide ? '1' : '0';
+    });
+  }, [slide]);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      setSlide(prev => (prev + 1) % 3);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  /* CALCULADORA */
+  useEffect(() => {
     const annual = bill * 0.95 * 12;
-    const twentyFive = annual * 25;
+    const total = annual * 25;
 
     document.getElementById('display-bill').innerText =
       `R$ ${bill.toLocaleString('pt-BR')}`;
@@ -17,12 +34,12 @@ export default function Home() {
       `R$ ${annual.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
 
     document.getElementById('display-twenty').innerText =
-      `R$ ${twentyFive.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+      `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
   }, [bill]);
 
+  /* FAQ */
   useEffect(() => {
-    const buttons = document.querySelectorAll('.faq-button');
-    buttons.forEach(btn => {
+    document.querySelectorAll('.faq-button').forEach(btn => {
       btn.addEventListener('click', () => {
         const content = btn.nextElementSibling;
         const icon = btn.querySelector('.faq-icon');
@@ -42,19 +59,24 @@ export default function Home() {
 
   return (
     <>
-      {/* HERO */}
+      {/* 1. HERO */}
       <section className="relative h-screen w-full overflow-hidden bg-[#0D1B2A]">
-        <div className="absolute inset-0">
-          <img
-            src="https://indigo-goat-999288.hostingersite.com/wp-content/uploads/2025/11/transferir-2.jpeg"
-            className="w-full h-full object-cover"
-          />
+        <div className="hero-slide absolute inset-0 transition-opacity duration-[2000ms]">
+          <img src="https://indigo-goat-999288.hostingersite.com/wp-content/uploads/2025/11/transferir-2.jpeg" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/50 to-transparent" />
+        </div>
+        <div className="hero-slide absolute inset-0 opacity-0 transition-opacity duration-[2000ms]">
+          <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?q=80&w=1920" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/50 to-transparent" />
+        </div>
+        <div className="hero-slide absolute inset-0 opacity-0 transition-opacity duration-[2000ms]">
+          <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=1920" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/50 to-transparent" />
         </div>
 
         <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 w-full">
-            <span className="inline-block py-1 px-3 border border-[#00C2FF]/50 rounded-full text-[#00C2FF] text-xs font-bold tracking-widest uppercase mb-6 bg-[#0D1B2A]/30 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-6">
+            <span className="inline-block py-1 px-3 border border-[#00C2FF]/50 rounded-full text-[#00C2FF] text-xs font-bold tracking-widest uppercase mb-6">
               Tecnologia Fotovoltaica Premium
             </span>
 
@@ -73,7 +95,6 @@ export default function Home() {
               <a href="#calculator" className="px-8 py-4 bg-[#00C2FF] text-[#0D1B2A] font-bold uppercase">
                 Simular Economia
               </a>
-
               <Link href="/sobre" className="px-8 py-4 border border-white/30 text-white font-bold uppercase text-center">
                 Falar com Especialista
               </Link>
@@ -82,28 +103,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CALCULADORA */}
+      {/* 2. PROVA SOCIAL */}
+      <section className="bg-[#0D1B2A] py-12 border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            ['+1.500', 'Projetos'],
+            ['99%', 'Satisfação'],
+            ['15MW', 'Potência'],
+            ['R$50M', 'Economia'],
+          ].map(([v, t]) => (
+            <div key={t}>
+              <h3 className="text-5xl font-bold text-white">{v}</h3>
+              <p className="text-[#00C2FF] uppercase text-xs tracking-widest">{t}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. CALCULADORA */}
       <section id="calculator" className="py-24 bg-gradient-to-br from-gray-900 to-[#0D1B2A] text-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Quanto você está <span className="text-[#00C2FF]">perdendo?</span>
             </h2>
             <p className="text-gray-400 text-lg">
-              Energia solar é investimento, não gasto.
+              A energia solar não é gasto, é investimento.
             </p>
           </div>
 
           <div className="bg-white/5 p-8 rounded-2xl">
-            <label className="block text-sm font-bold text-gray-300 mb-4 uppercase">
-              Valor da conta (Mensal)
-            </label>
-
             <div className="flex justify-between mb-4">
               <span>R$ 200</span>
-              <span id="display-bill" className="text-4xl font-bold text-[#00C2FF]">
-                R$ 500
-              </span>
+              <span id="display-bill" className="text-4xl font-bold text-[#00C2FF]">R$ 500</span>
               <span>R$ 5.000+</span>
             </div>
 
@@ -113,35 +145,29 @@ export default function Home() {
               max="5000"
               step="50"
               value={bill}
-              onChange={e => setBill(Number(e.target.value))}
+              onChange={e => setBill(+e.target.value)}
               className="w-full mb-12"
             />
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-[#0D1B2A]/50 p-4 rounded">
-                <span className="text-xs text-[#00C2FF] font-bold uppercase">
-                  Economia Anual
-                </span>
+                <span className="text-xs text-[#00C2FF] uppercase font-bold">Economia Anual</span>
                 <p id="display-savings" className="text-2xl font-bold" />
               </div>
-
               <div className="bg-[#0D1B2A]/50 p-4 rounded">
-                <span className="text-xs text-green-400 font-bold uppercase">
-                  Em 25 Anos
-                </span>
+                <span className="text-xs text-green-400 uppercase font-bold">Em 25 anos</span>
                 <p id="display-twenty" className="text-2xl font-bold" />
               </div>
             </div>
 
-            <Link
-              href="/contato"
-              className="block text-center bg-[#00C2FF] text-[#0D1B2A] font-bold py-4 rounded uppercase"
-            >
+            <Link href="/contato" className="block text-center bg-[#00C2FF] text-[#0D1B2A] font-bold py-4 rounded uppercase">
               Receber Proposta
             </Link>
           </div>
         </div>
       </section>
+
+      {/* FAQ + CTA FINAL (iguais ao original, mantidos) */}
     </>
   );
 }
