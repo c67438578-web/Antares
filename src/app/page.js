@@ -208,7 +208,211 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTINUA NA PARTE 2... */}
+      {/* 4. DIFERENCIAIS */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-[#0D1B2A] text-3xl md:text-4xl font-bold mb-4">Por que escolher a Antares?</h2>
+            <div className="w-20 h-1 bg-[#00C2FF] mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
+              <div className="w-16 h-16 bg-[#0D1B2A]/5 rounded-full flex items-center justify-center mb-6 text-[#00C2FF]">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#0D1B2A] mb-4">Alta Performance</h3>
+              <p className="text-gray-600">Equipamentos Tier-1 globais para máxima geração por metro quadrado.</p>
+            </div>
+            <div className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
+              <div className="w-16 h-16 bg-[#0D1B2A]/5 rounded-full flex items-center justify-center mb-6 text-[#00C2FF]">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#0D1B2A] mb-4">Instalação Segura</h3>
+              <p className="text-gray-600">Equipe própria certificada (NR10/NR35). Acabamento estético impecável.</p>
+            </div>
+            <div className="bg-white p-10 shadow-lg hover:-translate-y-2 transition-transform border-t-4 border-transparent hover:border-[#00C2FF]">
+              <div className="w-16 h-16 bg-[#0D1B2A]/5 rounded-full flex items-center justify-center mb-6 text-[#00C2FF]">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#0D1B2A] mb-4">Sustentabilidade</h3>
+              <p className="text-gray-600">Análise financeira detalhada. Seu sistema se paga em poucos anos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PASSO A PASSO */}
+      <section className="py-24 bg-[#0D1B2A] text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16">
+            <span className="text-[#00C2FF] font-bold uppercase text-sm">Passo a Passo</span>
+            <h2 className="text-3xl font-bold mt-2">Jornada Solar</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="group">
+              <div className="text-6xl font-bold text-gray-800 mb-4 group-hover:text-[#00C2FF] transition-colors">01</div>
+              <h3 className="text-xl font-bold">Avaliação</h3>
+              <p className="text-gray-400 text-sm">Análise técnica.</p>
+            </div>
+            <div className="group">
+              <div className="text-6xl font-bold text-gray-800 mb-4 group-hover:text-[#00C2FF] transition-colors">02</div>
+              <h3 className="text-xl font-bold">Projeto</h3>
+              <p className="text-gray-400 text-sm">Design personalizado.</p>
+            </div>
+            <div className="group">
+              <div className="text-6xl font-bold text-gray-800 mb-4 group-hover:text-[#00C2FF] transition-colors">03</div>
+              <h3 className="text-xl font-bold">Instalação</h3>
+              <p className="text-gray-400 text-sm">Montagem rápida.</p>
+            </div>
+            <div className="group">
+              <div className="text-6xl font-bold text-gray-800 mb-4 group-hover:text-[#00C2FF] transition-colors">04</div>
+              <h3 className="text-xl font-bold">Homologação</h3>
+              <p className="text-gray-400 text-sm">Burocracia zero.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. PROJETOS (Resumo) */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6 mb-12 flex justify-between items-end">
+          <div>
+            <h2 className="text-[#0D1B2A] text-3xl font-bold mb-2">Projetos Recentes</h2>
+          </div>
+          <Link href="/projetos" className="hidden md:block text-[#0D1B2A] font-bold hover:text-[#00C2FF]">
+            Ver Portfolio &rarr;
+          </Link>
+        </div>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative h-[400px] group overflow-hidden cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=800" 
+                alt="Residência Premium"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/90 to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-2xl font-bold text-white">Residência Premium</h3>
+                <p className="text-[#00C2FF] font-bold">12.5 kWp</p>
+              </div>
+            </div>
+            <div className="relative h-[400px] group overflow-hidden cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?q=80&w=800" 
+                alt="Centro Logístico"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/90 to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-2xl font-bold text-white">Centro Logístico</h3>
+                <p className="text-[#00C2FF] font-bold">150 kWp</p>
+              </div>
+            </div>
+            <div className="relative h-[400px] group overflow-hidden cursor-pointer">
+              <img 
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800" 
+                alt="Usina de Solo"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A]/90 to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-2xl font-bold text-white">Usina de Solo</h3>
+                <p className="text-[#00C2FF] font-bold">1 MW</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. DEPOIMENTOS */}
+      <section className="py-24 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <svg className="w-12 h-12 text-[#00C2FF] mx-auto mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <h2 className="text-3xl font-bold text-[#0D1B2A] mb-12">O que dizem nossos clientes</h2>
+          <div className="bg-white p-10 shadow-xl relative">
+            <div className="absolute -top-6 -left-6 text-9xl text-gray-100 font-serif leading-none">"</div>
+            <p className="text-xl text-gray-600 italic mb-8 relative z-10">
+              "A equipe da Antares foi excepcionalmente profissional. Desde a primeira simulação até a instalação final, tudo foi transparente. Hoje minha conta de luz é taxa mínima."
+            </p>
+            <div className="flex items-center justify-center space-x-4">
+              <div className="w-12 h-12 bg-gray-300 rounded-full overflow-hidden relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" 
+                  alt="Ricardo Almeida"
+                  className="w-full h-full object-cover absolute inset-0"
+                />
+              </div>
+              <div className="text-left">
+                <h4 className="font-bold text-[#0D1B2A]">Ricardo Almeida</h4>
+                <p className="text-xs text-gray-500 uppercase tracking-wide">Cotia/SP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FAQ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-[#0D1B2A] text-3xl font-bold text-center mb-12">Dúvidas Frequentes</h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex justify-between items-center p-6 bg-white hover:bg-gray-50 text-left"
+                >
+                  <span className="font-bold text-[#0D1B2A] pr-4">{faq.question}</span>
+                  <span className="text-[#00C2FF] font-bold text-xl">
+                    {openFaq === index ? '−' : '+'}
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFaq === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 pt-0 text-gray-600">{faq.answer}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. CTA FINAL */}
+      <section className="py-24 bg-[#0D1B2A] relative overflow-hidden text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Pronto para gerar sua própria energia?
+          </h2>
+          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+            Proteja-se contra a inflação energética e valorize seu imóvel. Solicite um orçamento sem compromisso hoje mesmo.
+          </p>
+          <Link 
+            href="/contato" 
+            className="inline-block px-10 py-5 bg-[#00C2FF] text-[#0D1B2A] font-bold text-lg uppercase tracking-wider hover:bg-white hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,194,255,0.3)]"
+          >
+            Simular Economia Agora
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
