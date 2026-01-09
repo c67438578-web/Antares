@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 @layer base {
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-montserrat), system-ui, sans-serif;
+  :root {
+    --antares-dark: #0D1B2A;
+    --antares-cyan: #00C2FF;
+  }
+
+  body {
+    @apply bg-white text-gray-800 antialiased;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+  
+  /* Títulos em Montserrat com peso Extra-Bold como no original */
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-montserrat), sans-serif;
+    @apply font-extrabold uppercase tracking-tight;
   }
   
   html {
@@ -12,58 +24,29 @@
   }
 }
 
-@layer utilities {
-  .filter-white {
-    filter: brightness(0) invert(1);
+@layer components {
+  /* Botão de WhatsApp idêntico ao Print 3 */
+  .btn-wa-original {
+    @apply flex items-center justify-center w-full px-4 py-3 border border-[#00C2FF] 
+           text-[#00C2FF] font-bold uppercase tracking-widest text-[11px] 
+           hover:bg-[#00C2FF] hover:text-[#0D1B2A] transition-all duration-300 rounded-sm;
   }
 }
 
-/* Estilo customizado para o input range (calculadora) */
+/* --- CALCULADORA (Estilo do Print 2) --- */
 input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
+  @apply w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer;
+  background-image: linear-gradient(var(--antares-cyan), var(--antares-cyan));
+  background-repeat: no-repeat;
 }
 
-input[type="range"]::-webkit-slider-track {
-  background: rgb(55 65 81);
-  height: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-input[type="range"]::-moz-range-track {
-  background: rgb(55 65 81);
-  height: 0.5rem;
-  border-radius: 0.5rem;
-}
-
+/* Bolinha da calculadora - Maior e mais nítida */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  margin-top: -6px;
-  background-color: #00C2FF;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+  @apply h-6 w-6 rounded-full bg-[#00C2FF] border-4 border-white shadow-lg;
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.4);
 }
 
 input[type="range"]::-moz-range-thumb {
-  border: none;
-  background-color: #00C2FF;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
-}
-
-input[type="range"]:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 15px rgba(0, 194, 255, 0.8);
-}
-
-input[type="range"]:focus::-moz-range-thumb {
-  box-shadow: 0 0 15px rgba(0, 194, 255, 0.8);
+  @apply h-6 w-6 rounded-full bg-[#00C2FF] border-4 border-white shadow-lg;
 }
